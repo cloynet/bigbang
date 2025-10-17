@@ -25,7 +25,7 @@ const getContactMailHTML = (name, email, subject, message) => `
   </div>
 `;
 
-router.post("/contact", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { name, email, subject, message, token } = req.body;
 

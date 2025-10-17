@@ -14,13 +14,13 @@ export default async function AdminPage() {
   console.log("🔑 Cookie içeriği:", secretKey);
   console.log("🎯 Beklenen key:", process.env.ADMIN_ACCESS_SECRET);
 
-  // ✅ SADECE COOKIE KONTROLÜ
+  //  SADECE COOKIE KONTROLÜ
   if (!secretKey) {
     console.error("❌ Admin doğrulama: Oturum çerezi bulunamadı.");
     redirect("/admin/login?redirect=/admin");
   }
 
-  // ✅ Cookie değerini doğrudan environment variable ile karşılaştır
+  //  Cookie değerini doğrudan environment variable ile karşılaştır
   if (secretKey !== process.env.ADMIN_ACCESS_SECRET) {
     console.error("❌ Admin doğrulama: Geçersiz çerez.");
     redirect("/admin/login?redirect=/admin");

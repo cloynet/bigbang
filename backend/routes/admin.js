@@ -5,7 +5,7 @@ const ADMIN_ID = process.env.ADMIN_ID;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 const ACCESS_KEY = process.env.ADMIN_ACCESS_SECRET;
 
-// ✅ Admin Login
+//  Admin Login
 router.post("/admin-login", async (req, res) => {
   try {
     const { id, password } = req.body;
@@ -16,7 +16,7 @@ router.post("/admin-login", async (req, res) => {
     }
 
     if (id === ADMIN_ID && password === ADMIN_PASSWORD) {
-      // 🔐 Cookie ayarlıyoruz
+      // Cookie
       res.cookie("admin-auth-key", ACCESS_KEY, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
@@ -38,8 +38,8 @@ router.post("/admin-login", async (req, res) => {
   }
 });
 
-// ✅ Yeni: Admin Verify
-// ✅ Admin Verify - EXTENDED DEBUG
+//  Admin Verify
+//  Admin Verify - EXTENDED DEBUG
 router.get("/verify-admin", (req, res) => {
   try {
     console.log("🔍 Verify-admin endpoint called");

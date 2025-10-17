@@ -1,9 +1,9 @@
 import express from "express";
-import { addCouple, getCoupleByUrlId } from "../lib/couples.js"; // ✅ getCoupleByUrlId ekle
+import { addCouple, getCoupleByUrlId } from "../lib/couples.js";
 
 const router = express.Router();
 
-// ✅ Çift ekleme (POST)
+// Çift ekleme (POST)
 router.post("/", async (req, res) => {
   try {
     const { urlId, loginId, password } = req.body;
@@ -28,7 +28,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-// ✅ Çift bilgilerini getir (GET) - BU EKLENDİ!
+// Çift bilgilerini getir (GET)
 router.get("/:urlId", async (req, res) => {
   try {
     const { urlId } = req.params;
@@ -46,7 +46,7 @@ router.get("/:urlId", async (req, res) => {
       });
     }
 
-    console.log("✅ Çift bulundu:", couple);
+    console.log("Çift bulundu:", couple);
 
     return res.json({
       success: true,
@@ -54,11 +54,10 @@ router.get("/:urlId", async (req, res) => {
         urlId: couple.urlId,
         loginId: couple.loginId,
         created_at: couple.created_at,
-        // Diğer bilgileri buraya ekleyebilirsin
       },
     });
   } catch (error) {
-    console.error("❌ Çift bilgisi alma hatası:", error);
+    console.error("Çift bilgisi alma hatası:", error);
     return res.status(500).json({
       success: false,
       error: "Çift bilgileri alınamadı: " + error.message,

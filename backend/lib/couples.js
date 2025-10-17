@@ -19,7 +19,6 @@ function generateRandomSuffix(length = 4) {
     .substring(2, 2 + length);
 }
 
-// ✅ URL ID'ye göre çift getirme - DÜZELTİLDİ
 export async function getCoupleByUrlId(urlId) {
   try {
     console.log("🔍 Firebase'de çift aranıyor:", urlId);

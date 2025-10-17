@@ -44,7 +44,6 @@ function AboutPageClient() {
       description:
         "Tasarım, yazılım ve dijital pazarlama alanlarında uzmanlaşmış bir ekiple çalışıyoruz. Her birimiz, sizler için en güzel dijital deneyimi yaratmak için buradayız.",
     },
-    // Yeni kart: Değerlerimiz
     {
       title: "Değerlerimiz",
       description: (

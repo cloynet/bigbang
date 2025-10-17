@@ -3,13 +3,15 @@ import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import { products, Product } from "@/lib/markdownService";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 function ProductDetailPage() {
   const params = useParams();
   const slug = params?.slug as string;
   const product: Product | undefined = products.find((p) => p.slug === slug);
 
-  // hem string hem de File[] desteklemesi için type genişletildi
   const [formData, setFormData] = useState<
     Record<string, string | File | File[]>
   >({});
@@ -70,7 +72,7 @@ function ProductDetailPage() {
               <label className='block font-medium mb-1'>{field.label}</label>
 
               {field.type === "textarea" ? (
-                <textarea
+                <Textarea
                   name={field.name}
                   required={field.required}
                   onChange={(e) =>
@@ -82,7 +84,7 @@ function ProductDetailPage() {
                   className='w-full border rounded-md p-2'
                 />
               ) : (
-                <input
+                <Input
                   type={field.type}
                   name={field.name}
                   required={field.required}
@@ -104,12 +106,12 @@ function ProductDetailPage() {
             </div>
           ))}
 
-          <button
+          <Button
             type='submit'
             className='w-full bg-pink-500 text-white py-2 rounded-md hover:bg-pink-600 transition'
           >
             Satın Al
-          </button>
+          </Button>
         </form>
       </div>
     </div>

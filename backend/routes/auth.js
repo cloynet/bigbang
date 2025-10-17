@@ -18,7 +18,7 @@ router.post("/login", async (req, res) => {
 
     const { link, urlId } = result;
 
-    // ✅ COOKIE AYARLARI GÜNCELLENDİ
+    //  COOKIE AYARLARI GÜNCELLENDİ
     res.cookie(`coupleAuth_${urlId}`, urlId, {
       httpOnly: true,
       secure: false, // Development'ta false
